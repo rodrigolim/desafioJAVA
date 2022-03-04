@@ -1,6 +1,7 @@
 package com.github.rodrigolim;
 
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,13 +24,13 @@ import javax.ws.rs.core.MediaType;
 public class MarcaResource {
 		
 	@GET
-	public List<Marca> buscarTodasMarcas(){
+	public List<Marca> buscarTodos(){
 		return Marca.listAll();
 	}
 	
 	@POST
     @Transactional
-    public void buscarTodasMarcas(CadastrarMarcaDTO dto) {
+    public void inserir(CadastrarMarcaDTO dto) {
 		Marca m = new Marca();
 		m.setNome(dto.getNome());	
 		m.persist();
@@ -38,7 +39,7 @@ public class MarcaResource {
 	@PUT
 	@Path("{marca_id}")
     @Transactional
-    public void buscarTodasMarcas(@PathParam("marca_id") long marca_id, CadastrarMarcaDTO dto) {
+    public void alterar(@PathParam("marca_id") BigInteger marca_id, CadastrarMarcaDTO dto) {
 	    Optional<Marca> mOp = Marca.findByIdOptional(marca_id);
 	    
 	    if (mOp.isPresent()) {
@@ -54,7 +55,7 @@ public class MarcaResource {
 	@DELETE
 	@Path("{marca_id}")
     @Transactional
-    public void buscarTodasMarcas(@PathParam("marca_id") long marca_id) {
+    public void deletar(@PathParam("marca_id") BigInteger marca_id) {
 	    Optional<Marca> mOp = Marca.findByIdOptional(marca_id);
 	    
 	    mOp.ifPresentOrElse(Marca::delete, () -> {

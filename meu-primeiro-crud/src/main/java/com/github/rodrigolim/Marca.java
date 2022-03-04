@@ -2,10 +2,12 @@ package com.github.rodrigolim;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -16,15 +18,24 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 @Entity
 public class Marca extends PanacheEntityBase {
 	
-	private Long marca_id;
-    private String nome;
-    private Date data_criacao;
-    private Date data_atualizacao;
-    
-    
-    @Id
+	@Id
     @SequenceGenerator(name = "marcaSeq", sequenceName = "marca_id_seq", allocationSize = 1, initialValue = 1)
     @GeneratedValue(generator = "marcaSeq")
+	private Long marca_id;
+	
+	@NotBlank(message="Nome Obrigatório")
+	@Column(length = 100, nullable = false)
+    private String nome;
+	
+	@CreationTimestamp
+	@Column(nullable = false)
+    private Date data_criacao;
+	
+	@UpdateTimestamp
+	@Column(nullable = false)
+    private Date data_atualizacao;    
+    
+    
 	public Long getMarca_id() {
 		return marca_id;
 	}
@@ -41,7 +52,7 @@ public class Marca extends PanacheEntityBase {
 		this.nome = nome;
 	}
 	
-	@CreationTimestamp
+	
 	public Date getData_criacao() {
 		return data_criacao;
 	}
@@ -50,7 +61,7 @@ public class Marca extends PanacheEntityBase {
 		this.data_criacao = data_criacao;
 	}
 	
-	@UpdateTimestamp
+	
 	public Date getData_atualizacao() {
 		return data_atualizacao;
 	}
@@ -58,22 +69,5 @@ public class Marca extends PanacheEntityBase {
 	public void setData_atualizacao(Date data_atualizacao) {
 		this.data_atualizacao = data_atualizacao;
 	}
-	
-    
-    
-    /*
-	@Id
-    @SequenceGenerator(name = "marcaSeq", sequenceName = "marca_id_seq", allocationSize = 1, initialValue = 1)
-    @GeneratedValue(generator = "marcaSeq")
-	public Long marca_id;
-	public String nome;
-    
-    @CreationTimestamp
-    public Date data_criacao;
-		
-	@UpdateTimestamp
-	public Date data_atualizacao;	
-	
-	*/
-	
+
 }
