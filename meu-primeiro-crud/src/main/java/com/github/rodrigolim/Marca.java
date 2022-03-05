@@ -1,11 +1,13 @@
 package com.github.rodrigolim;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotBlank;
 
@@ -34,7 +36,7 @@ public class Marca extends PanacheEntityBase {
 	@UpdateTimestamp
 	@Column(nullable = false)
     private Date data_atualizacao;    
-    
+	 
     
 	public Long getMarca_id() {
 		return marca_id;
