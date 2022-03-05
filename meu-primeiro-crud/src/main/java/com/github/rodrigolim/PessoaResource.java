@@ -16,52 +16,56 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 
-@Path("proprietarios")
+@Path("pessoa")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class ProprietarioResource {
+public class PessoaResource {
 		
 	@GET
-	public List<Proprietario> buscarTodos(){
-		return Proprietario.listAll();
+	public List<Pessoa> buscarTodos(){
+		return Pessoa.listAll();
 	}
 	
 	
 	@POST
     @Transactional
-    public void inserir(CadastrarProprietarioDTO dto) {
-		Proprietario p = new Proprietario();
+    public void inserir(CadastrarPessoaDTO dto) {
+		Pessoa p = new Pessoa();
 		p.setNome(dto.getNome());	
-		p.setTipo(dto.getTipo());
-		p.setCnpj(dto.getCnpj());
+		p.setSobreNome(dto.getSobreNome());
+		p.setRg(dto.getRg());		
 		p.setCpf(dto.getCpf());
+		p.setSexo(dto.getSexo());
+		p.setData_nascimento(dto.getData_nascimento());
 		p.setEndereco(dto.getEndereco());
 		p.setUf(dto.getUf());
 		p.setCidade(dto.getCidade());
 		p.setPais(dto.getPais());
-		p.setTelefone(dto.getTelefone());
+		p.setCelular(dto.getCelular());
 		p.setEmail(dto.getEmail());
 		p.persist();
     }
 	
 	@PUT
-	@Path("{proprietario_id}")
+	@Path("{pessoa_id}")
     @Transactional
-    public void alterar(@PathParam("proprietario_id") Long proprietario_id, CadastrarProprietarioDTO dto) {
-	    Optional<Proprietario> pOp = Proprietario.findByIdOptional(proprietario_id);
+    public void alterar(@PathParam("pessoa_id") Long pessoa_id, CadastrarPessoaDTO dto) {
+	    Optional<Pessoa> pOp = Pessoa.findByIdOptional(pessoa_id);
 	    
 	    if (pOp.isPresent()) {
-	    	Proprietario p = pOp.get();
-	    	p.setNome(dto.getNome());	
-			p.setTipo(dto.getTipo());
-			p.setCnpj(dto.getCnpj());
+	    	Pessoa p = new Pessoa();
+			p.setNome(dto.getNome());	
+			p.setSobreNome(dto.getSobreNome());
+			p.setRg(dto.getRg());		
 			p.setCpf(dto.getCpf());
+			p.setSexo(dto.getSexo());
+			p.setData_nascimento(dto.getData_nascimento());
 			p.setEndereco(dto.getEndereco());
 			p.setUf(dto.getUf());
 			p.setCidade(dto.getCidade());
 			p.setPais(dto.getPais());
-			p.setTelefone(dto.getTelefone());
-			p.setEmail(dto.getEmail());				
+			p.setCelular(dto.getCelular());
+			p.setEmail(dto.getEmail());
 			p.persist();	
 	    }
 	    else {
@@ -70,12 +74,12 @@ public class ProprietarioResource {
 	}
 	
 	@DELETE
-	@Path("{proprietario_id}")
+	@Path("{pessoa_id}")
     @Transactional
-    public void deletar(@PathParam("proprietario_id") Long proprietario_id) {
-	    Optional<Proprietario> mOp = Proprietario.findByIdOptional(proprietario_id);
+    public void deletar(@PathParam("pessoa_id") Long pessoa_id) {
+	    Optional<Pessoa> mOp = Pessoa.findByIdOptional(pessoa_id);
 	    
-	    mOp.ifPresentOrElse(Proprietario::delete, () -> {
+	    mOp.ifPresentOrElse(Pessoa::delete, () -> {
 	    				throw new NotFoundException();
 	    		});
 		

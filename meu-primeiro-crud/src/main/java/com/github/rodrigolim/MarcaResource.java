@@ -1,7 +1,6 @@
 package com.github.rodrigolim;
 
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +38,7 @@ public class MarcaResource {
 	@PUT
 	@Path("{marca_id}")
     @Transactional
-    public void alterar(@PathParam("marca_id") BigInteger marca_id, CadastrarMarcaDTO dto) {
+    public void alterar(@PathParam("marca_id") Long marca_id, CadastrarMarcaDTO dto) {
 	    Optional<Marca> mOp = Marca.findByIdOptional(marca_id);
 	    
 	    if (mOp.isPresent()) {
@@ -55,7 +54,7 @@ public class MarcaResource {
 	@DELETE
 	@Path("{marca_id}")
     @Transactional
-    public void deletar(@PathParam("marca_id") BigInteger marca_id) {
+    public void deletar(@PathParam("marca_id") Long marca_id) {
 	    Optional<Marca> mOp = Marca.findByIdOptional(marca_id);
 	    
 	    mOp.ifPresentOrElse(Marca::delete, () -> {
