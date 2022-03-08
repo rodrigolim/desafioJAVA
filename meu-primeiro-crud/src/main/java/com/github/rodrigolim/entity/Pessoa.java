@@ -40,7 +40,8 @@ public class Pessoa extends PanacheEntityBase {
 	@Column(length = 1, nullable = false)
     private String sexo;
 	
-	private Date data_nascimento;
+	@Column(name = "data_nascimento")
+	private Date dataNascimento;
 
 	@Column(length = 100)
     private String endereco;
@@ -116,12 +117,12 @@ public class Pessoa extends PanacheEntityBase {
 		this.sexo = sexo;
 	}
 
-	public Date getData_nascimento() {
-		return data_nascimento;
+	public Date getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setData_nascimento(Date data_nascimento) {
-		this.data_nascimento = data_nascimento;
+	public void setData_nascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getEndereco() {

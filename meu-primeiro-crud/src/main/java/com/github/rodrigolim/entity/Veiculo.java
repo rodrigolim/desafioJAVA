@@ -64,12 +64,12 @@ public class Veiculo extends PanacheEntityBase {
 	private Pessoa pessoa;
 	
 	@CreationTimestamp
-	@Column(nullable = false)
-	private Date data_criacao;
+	@Column(nullable = false, name="data_criacao")
+	private Date dataCriacao;
 		
 	@UpdateTimestamp
-	@Column(nullable = false)
-	private Date data_atualizacao;
+	@Column(nullable = false, name="data_atualizacao")
+	private Date dataAtualizacao;
 
 	public Long getVeiculo_id() {
 		return veiculo_id;
@@ -168,19 +168,19 @@ public class Veiculo extends PanacheEntityBase {
 	}
 
 	public Date getData_criacao() {
-		return data_criacao;
+		return dataCriacao;
 	}
 
-	public void setData_criacao(Date data_criacao) {
-		this.data_criacao = data_criacao;
+	public void setData_criacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
 	}
 
-	public Date getData_atualizacao() {
-		return data_atualizacao;
+	public Date getDataAtualizacao() {
+		return dataAtualizacao;
 	}
 
-	public void setData_atualizacao(Date data_atualizacao) {
-		this.data_atualizacao = data_atualizacao;
+	public void setData_atualizacao(Date dataAtualizacao) {
+		this.dataAtualizacao = dataAtualizacao;
 	}	
 
 }
