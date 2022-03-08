@@ -1,4 +1,4 @@
-package com.github.rodrigolim;
+package com.github.rodrigolim.resource;
 
 
 import java.util.List;
@@ -15,6 +15,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import com.github.rodrigolim.entity.Marca;
+import com.github.rodrigolim.model.dto.CadastrarMarcaDTO;
 
 
 @Path("marcas")

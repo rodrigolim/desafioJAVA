@@ -1,4 +1,4 @@
-package com.github.rodrigolim;
+package com.github.rodrigolim.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

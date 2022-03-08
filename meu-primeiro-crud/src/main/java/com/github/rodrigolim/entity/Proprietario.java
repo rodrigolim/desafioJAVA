@@ -1,6 +1,7 @@
-package com.github.rodrigolim;
+package com.github.rodrigolim.entity;
 
 import java.util.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,32 +17,26 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 
 @Entity
-public class Pessoa extends PanacheEntityBase {
+public class Proprietario extends PanacheEntityBase {
 	
 	@Id
-    @SequenceGenerator(name = "pessoaSeq", sequenceName = "pessoa_id_seq", allocationSize = 1, initialValue = 1)
-    @GeneratedValue(generator = "pessoaSeq")
-	private Long pessoa_id;
+    @SequenceGenerator(name = "proprietarioSeq", sequenceName = "proprietario_id_seq", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(generator = "proprietarioSeq")
+	private Long proprietario_id;
 	
 	@NotBlank(message="Nome Obrigatório")
 	@Column(length = 100, nullable = false)
     private String nome;
 	
-	@NotBlank(message="Nome Obrigatório")
-	@Column(length = 100, nullable = false)
-    private String sobreNome;
-	
-	@Column(length = 50, nullable = false, unique = true)
-	private String rg;
-	
-	@Column(length = 50, nullable = false, unique = true)
-	private String cpf;
-	
 	@Column(length = 1, nullable = false)
-    private String sexo;
+    private String tipo;
+  
+	@Column(length = 50, unique = true)
+	private String cnpj;
 	
-	private Date data_nascimento;
-
+	@Column(length = 50, unique = true)
+    private String cpf;
+	
 	@Column(length = 100)
     private String endereco;
   
@@ -55,25 +50,25 @@ public class Pessoa extends PanacheEntityBase {
     private String pais;
 	
 	@Column(length = 20)
-    private String celular;
- 
+    private String telefone;
+	
 	@Column(length = 50)
-	private String email;
-	  
+    private String email;
+
 	@CreationTimestamp
 	@Column(nullable = false)
 	private Date data_criacao;
-		
+	
 	@UpdateTimestamp
 	@Column(nullable = false)
-	private Date data_atualizacao;
+    private Date data_atualizacao;
 
-	public Long getPessoa_id() {
-		return pessoa_id;
+	public Long getProprietario_id() {
+		return proprietario_id;
 	}
 
-	public void setPessoa_id(Long pessoa_id) {
-		this.pessoa_id = pessoa_id;
+	public void setProprietario_id(Long proprietario_id) {
+		this.proprietario_id = proprietario_id;
 	}
 
 	public String getNome() {
@@ -84,20 +79,20 @@ public class Pessoa extends PanacheEntityBase {
 		this.nome = nome;
 	}
 
-	public String getSobreNome() {
-		return sobreNome;
+	public String getTipo() {
+		return tipo;
 	}
 
-	public void setSobreNome(String sobreNome) {
-		this.sobreNome = sobreNome;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
-	public String getRg() {
-		return rg;
+	public String getCnpj() {
+		return cnpj;
 	}
 
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
 	public String getCpf() {
@@ -106,22 +101,6 @@ public class Pessoa extends PanacheEntityBase {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public Date getData_nascimento() {
-		return data_nascimento;
-	}
-
-	public void setData_nascimento(Date data_nascimento) {
-		this.data_nascimento = data_nascimento;
 	}
 
 	public String getEndereco() {
@@ -156,12 +135,12 @@ public class Pessoa extends PanacheEntityBase {
 		this.pais = pais;
 	}
 
-	public String getCelular() {
-		return celular;
+	public String getTelefone() {
+		return telefone;
 	}
 
-	public void setCelular(String celular) {
-		this.celular = celular;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 	public String getEmail() {
@@ -186,6 +165,7 @@ public class Pessoa extends PanacheEntityBase {
 
 	public void setData_atualizacao(Date data_atualizacao) {
 		this.data_atualizacao = data_atualizacao;
-	} 	
+	}
+
 	
 }

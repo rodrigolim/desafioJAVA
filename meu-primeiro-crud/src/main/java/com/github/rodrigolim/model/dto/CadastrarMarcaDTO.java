@@ -1,4 +1,4 @@
-package com.github.rodrigolim;
+package com.github.rodrigolim.model.dto;
 
 public class CadastrarMarcaDTO {
 	

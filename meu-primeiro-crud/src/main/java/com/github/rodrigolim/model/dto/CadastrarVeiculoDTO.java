@@ -1,4 +1,8 @@
-package com.github.rodrigolim;
+package com.github.rodrigolim.model.dto;
+
+import com.github.rodrigolim.entity.Marca;
+import com.github.rodrigolim.entity.Pessoa;
+import com.github.rodrigolim.entity.Proprietario;
 
 public class CadastrarVeiculoDTO {
 	
