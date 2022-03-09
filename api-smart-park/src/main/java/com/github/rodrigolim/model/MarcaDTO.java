@@ -1,6 +1,6 @@
-package com.github.rodrigolim.model.dto;
+package com.github.rodrigolim.model;
 
-public class CadastrarMarcaDTO {
+public class MarcaDTO {
 	
 	private String nome;
 

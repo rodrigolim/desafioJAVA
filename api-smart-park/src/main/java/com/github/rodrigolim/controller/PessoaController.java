@@ -1,4 +1,4 @@
-package com.github.rodrigolim.resource;
+package com.github.rodrigolim.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,13 +16,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.github.rodrigolim.entity.Pessoa;
-import com.github.rodrigolim.model.dto.CadastrarPessoaDTO;
+import com.github.rodrigolim.model.PessoaDTO;
 
 
 @Path("pessoa")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class PessoaResource {
+public class PessoaController {
 		
 	@GET
 	public List<Pessoa> buscarTodos(){
@@ -32,7 +32,7 @@ public class PessoaResource {
 	
 	@POST
     @Transactional
-    public void inserir(CadastrarPessoaDTO dto) {
+    public void inserir(PessoaDTO dto) {
 		Pessoa p = new Pessoa();
 		p.setNome(dto.getNome());	
 		p.setSobreNome(dto.getSobreNome());
@@ -52,7 +52,7 @@ public class PessoaResource {
 	@PUT
 	@Path("{pessoa_id}")
     @Transactional
-    public void alterar(@PathParam("pessoa_id") Long pessoa_id, CadastrarPessoaDTO dto) {
+    public void alterar(@PathParam("pessoa_id") Long pessoa_id, PessoaDTO dto) {
 	    Optional<Pessoa> pOp = Pessoa.findByIdOptional(pessoa_id);
 	    
 	    if (pOp.isPresent()) {

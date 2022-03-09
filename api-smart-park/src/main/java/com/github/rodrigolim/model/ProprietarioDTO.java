@@ -1,22 +1,17 @@
-package com.github.rodrigolim.model.dto;
+package com.github.rodrigolim.model;
 
-import java.util.Date;
-
-public class CadastrarPessoaDTO {
+public class ProprietarioDTO {
 	
-	private String nome;
-	private String sobreNome;
-    private String rg;
+    private String nome;
+    private String tipo;
+	private String cnpj;
     private String cpf;
-	private String sexo;
-	private Date data_nascimento;
     private String endereco;
 	private String uf;
     private String cidade;
     private String pais;
-    private String celular;
+    private String telefone;
     private String email;
-    
     
 	public String getNome() {
 		return nome;
@@ -24,35 +19,23 @@ public class CadastrarPessoaDTO {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getSobreNome() {
-		return sobreNome;
+	public String getTipo() {
+		return tipo;
 	}
-	public void setSobreNome(String sobreNome) {
-		this.sobreNome = sobreNome;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
-	public String getRg() {
-		return rg;
+	public String getCnpj() {
+		return cnpj;
 	}
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 	public String getCpf() {
 		return cpf;
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-	public String getSexo() {
-		return sexo;
-	}
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-	public Date getData_nascimento() {
-		return data_nascimento;
-	}
-	public void setData_nascimento(Date data_nascimento) {
-		this.data_nascimento = data_nascimento;
 	}
 	public String getEndereco() {
 		return endereco;
@@ -78,17 +61,17 @@ public class CadastrarPessoaDTO {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-	public String getCelular() {
-		return celular;
+	public String getTelefone() {
+		return telefone;
 	}
-	public void setCelular(String celular) {
-		this.celular = celular;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}    
-    
+	}   
+
 }

@@ -1,4 +1,4 @@
-package com.github.rodrigolim.resource;
+package com.github.rodrigolim.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,13 +16,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.github.rodrigolim.entity.Proprietario;
-import com.github.rodrigolim.model.dto.CadastrarProprietarioDTO;
+import com.github.rodrigolim.model.ProprietarioDTO;
 
 
 @Path("proprietarios")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class ProprietarioResource {
+public class ProprietarioController {
 		
 	@GET
 	public List<Proprietario> buscarTodos(){
@@ -32,7 +32,7 @@ public class ProprietarioResource {
 	
 	@POST
     @Transactional
-    public void inserir(CadastrarProprietarioDTO dto) {
+    public void inserir(ProprietarioDTO dto) {
 		Proprietario p = new Proprietario();
 		p.setNome(dto.getNome());	
 		p.setTipo(dto.getTipo());
@@ -50,7 +50,7 @@ public class ProprietarioResource {
 	@PUT
 	@Path("{proprietario_id}")
     @Transactional
-    public void alterar(@PathParam("proprietario_id") Long proprietario_id, CadastrarProprietarioDTO dto) {
+    public void alterar(@PathParam("proprietario_id") Long proprietario_id, ProprietarioDTO dto) {
 	    Optional<Proprietario> pOp = Proprietario.findByIdOptional(proprietario_id);
 	    
 	    if (pOp.isPresent()) {

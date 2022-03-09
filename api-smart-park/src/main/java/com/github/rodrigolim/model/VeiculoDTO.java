@@ -1,10 +1,10 @@
-package com.github.rodrigolim.model.dto;
+package com.github.rodrigolim.model;
 
 import com.github.rodrigolim.entity.Marca;
 import com.github.rodrigolim.entity.Pessoa;
 import com.github.rodrigolim.entity.Proprietario;
 
-public class CadastrarVeiculoDTO {
+public class VeiculoDTO {
 	
 	private boolean ativo;
     private String categoria;

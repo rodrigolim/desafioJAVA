@@ -1,5 +1,4 @@
-package com.github.rodrigolim.resource;
-
+package com.github.rodrigolim.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,13 +16,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.github.rodrigolim.entity.Marca;
-import com.github.rodrigolim.model.dto.CadastrarMarcaDTO;
+import com.github.rodrigolim.model.MarcaDTO;
 
 
 @Path("marcas")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class MarcaResource {
+public class MarcaController {
 		
 	@GET
 	public List<Marca> buscarTodos(){
@@ -32,7 +31,7 @@ public class MarcaResource {
 	
 	@POST
     @Transactional
-    public void inserir(CadastrarMarcaDTO dto) {
+    public void inserir(MarcaDTO dto) {
 		Marca m = new Marca();
 		m.setNome(dto.getNome());	
 		m.persist();
@@ -41,7 +40,7 @@ public class MarcaResource {
 	@PUT
 	@Path("{marca_id}")
     @Transactional
-    public void alterar(@PathParam("marca_id") Long marca_id, CadastrarMarcaDTO dto) {
+    public void alterar(@PathParam("marca_id") Long marca_id, MarcaDTO dto) {
 	    Optional<Marca> mOp = Marca.findByIdOptional(marca_id);
 	    
 	    if (mOp.isPresent()) {

@@ -1,4 +1,4 @@
-package com.github.rodrigolim.resource;
+package com.github.rodrigolim.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,13 +16,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.github.rodrigolim.entity.Veiculo;
-import com.github.rodrigolim.model.dto.CadastrarVeiculoDTO;
+import com.github.rodrigolim.model.VeiculoDTO;
 
 
 @Path("veiculos")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class VeiculoResource {
+public class VeiculoController {
 		
 	@GET
 	public List<Veiculo> buscarTodos(){
@@ -32,7 +32,7 @@ public class VeiculoResource {
 	
 	@POST
     @Transactional
-    public void inserir(CadastrarVeiculoDTO dto) {
+    public void inserir(VeiculoDTO dto) {
 		Veiculo v = new Veiculo();
 		v.setAtivo(dto.getAtivo());	
 		v.setCategoria(dto.getCategoria());
@@ -51,7 +51,7 @@ public class VeiculoResource {
 	@PUT
 	@Path("{veiculo_id}")
     @Transactional
-    public void alterar(@PathParam("veiculo_id") Long veiculo_id, CadastrarVeiculoDTO dto) {
+    public void alterar(@PathParam("veiculo_id") Long veiculo_id, VeiculoDTO dto) {
 	    Optional<Veiculo> pOp = Veiculo.findByIdOptional(veiculo_id);
 	    
 	    if (pOp.isPresent()) {
