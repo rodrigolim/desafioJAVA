@@ -19,7 +19,7 @@ import com.github.rodrigolim.entity.Pessoa;
 import com.github.rodrigolim.model.PessoaDTO;
 
 
-@Path("pessoa")
+@Path("/cadastro/pessoa")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class PessoaController {
@@ -39,7 +39,7 @@ public class PessoaController {
 		p.setRg(dto.getRg());		
 		p.setCpf(dto.getCpf());
 		p.setSexo(dto.getSexo());
-		p.setData_nascimento(dto.getData_nascimento());
+		p.setDataNascimento(dto.getData_nascimento());
 		p.setEndereco(dto.getEndereco());
 		p.setUf(dto.getUf());
 		p.setCidade(dto.getCidade());
@@ -62,7 +62,7 @@ public class PessoaController {
 			p.setRg(dto.getRg());		
 			p.setCpf(dto.getCpf());
 			p.setSexo(dto.getSexo());
-			p.setData_nascimento(dto.getData_nascimento());
+			p.setDataNascimento(dto.getData_nascimento());
 			p.setEndereco(dto.getEndereco());
 			p.setUf(dto.getUf());
 			p.setCidade(dto.getCidade());

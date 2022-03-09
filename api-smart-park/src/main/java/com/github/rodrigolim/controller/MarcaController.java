@@ -18,8 +18,7 @@ import javax.ws.rs.core.MediaType;
 import com.github.rodrigolim.entity.Marca;
 import com.github.rodrigolim.model.MarcaDTO;
 
-
-@Path("marcas")
+@Path("/cadastro/marcas")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class MarcaController {

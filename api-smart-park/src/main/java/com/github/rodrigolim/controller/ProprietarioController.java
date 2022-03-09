@@ -19,7 +19,7 @@ import com.github.rodrigolim.entity.Proprietario;
 import com.github.rodrigolim.model.ProprietarioDTO;
 
 
-@Path("proprietarios")
+@Path("/cadastro/proprietarios")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProprietarioController {

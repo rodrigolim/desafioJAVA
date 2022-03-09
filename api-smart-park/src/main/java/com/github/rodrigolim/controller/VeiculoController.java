@@ -19,7 +19,7 @@ import com.github.rodrigolim.entity.Veiculo;
 import com.github.rodrigolim.model.VeiculoDTO;
 
 
-@Path("veiculos")
+@Path("/cadastro/veiculos")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class VeiculoController {
@@ -40,8 +40,8 @@ public class VeiculoController {
 		v.setPlaca(dto.getPlaca());
 		v.setModelo(dto.getModelo());
 		v.setCor(dto.getCor());
-		v.setAno_fabricacao(dto.getAno_fabricacao());
-		v.setAno_modelo(dto.getAno_modelo());
+		v.setAnoFabricacao(dto.getAno_fabricacao());
+		v.setAnoModelo(dto.getAno_modelo());
 		v.setMarca(dto.getMarca());
 		v.setProprietario(dto.getProprietario());
 		v.setPessoa(dto.getPessoa());
@@ -62,8 +62,8 @@ public class VeiculoController {
 			v.setPlaca(dto.getPlaca());
 			v.setModelo(dto.getModelo());
 			v.setCor(dto.getCor());
-			v.setAno_fabricacao(dto.getAno_fabricacao());
-			v.setAno_modelo(dto.getAno_modelo());
+			v.setAnoFabricacao(dto.getAno_fabricacao());
+			v.setAnoFabricacao(dto.getAno_modelo());
 			v.setMarca(dto.getMarca());
 			v.setProprietario(dto.getProprietario());
 			v.setPessoa(dto.getPessoa());
