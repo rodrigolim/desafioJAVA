@@ -1,5 +1,6 @@
 package com.github.rodrigolim.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Getter
+@EqualsAndHashCode(callSuper = false)
 @MappedSuperclass
 public class BaseEntity extends PanacheEntityBase {
 
