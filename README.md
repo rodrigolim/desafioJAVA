@@ -48,5 +48,5 @@ Resumo: Criar um cadastro de veículos para um estacionamento. Este estacionamen
 Modelar uma estrutura de banco de dados no PostgreSQL, criando um schema novo chamado cadastro, e todas as tabelas e campos necessários dado a informação acima; utilizar os nomes das tabelas e elementos do banco de dados em português, porém sem os acentos da linguagem.
 
 # 2º passo  
-Codificar uma APi utilizando linguagem JAVA e o framework Quarkus.
+Codificar uma API utilizando linguagem JAVA e o framework Quarkus.
 	
