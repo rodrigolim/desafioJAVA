@@ -28,17 +28,17 @@ import lombok.RequiredArgsConstructor;
 @Produces(MediaType.APPLICATION_JSON)
 public class MarcaController {
 		
-	private final MarcaService service;
+	//private final MarcaService service;
 
 	@GET
 	public List<Marca> buscarTodos(){
-		return service.getTodasMarcas();
+		return (List<Marca>) Marca.findAll();
 	}
 	
 	@POST
     @Transactional
     public void inserir(MarcaDTO dto) {
-		Marca m = new Marca();
+		Marca m = new Marca();		
 		m.setNome(dto.getNome());	
 		m.persist();
     }
