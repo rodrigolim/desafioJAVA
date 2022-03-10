@@ -18,7 +18,6 @@ import javax.ws.rs.core.MediaType;
 import com.github.rodrigolim.entity.Pessoa;
 import com.github.rodrigolim.model.PessoaDTO;
 
-
 @Path("/cadastro/pessoa")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

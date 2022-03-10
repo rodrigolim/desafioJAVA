@@ -17,15 +17,22 @@ import javax.ws.rs.core.MediaType;
 
 import com.github.rodrigolim.entity.Marca;
 import com.github.rodrigolim.model.MarcaDTO;
+import com.github.rodrigolim.service.MarcaService;
+
+import lombok.RequiredArgsConstructor;
+
 
 @Path("/cadastro/marcas")
-@Produces(MediaType.APPLICATION_JSON)
+@RequiredArgsConstructor
 @Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class MarcaController {
 		
+	private final MarcaService service;
+
 	@GET
 	public List<Marca> buscarTodos(){
-		return Marca.listAll();
+		return service.getTodasMarcas();
 	}
 	
 	@POST
