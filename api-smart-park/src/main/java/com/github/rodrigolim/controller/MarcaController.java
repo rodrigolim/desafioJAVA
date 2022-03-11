@@ -28,11 +28,11 @@ import lombok.RequiredArgsConstructor;
 @Produces(MediaType.APPLICATION_JSON)
 public class MarcaController {
 		
-	//private final MarcaService service;
+	private final MarcaService service;
 
 	@GET
 	public List<Marca> buscarTodos(){
-		return (List<Marca>) Marca.findAll();
+		return service.getTodasMarcas();
 	}
 	
 	@POST
