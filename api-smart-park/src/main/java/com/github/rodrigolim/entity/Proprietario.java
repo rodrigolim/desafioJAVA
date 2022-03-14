@@ -4,18 +4,19 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import lombok.*;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Setter
 @Getter
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @NoArgsConstructor
-@Table(name = "PROPRIETARIO")
+@Table(name = "PROPRIETARIO", schema = "CADASTRO")
 public class Proprietario extends BaseEntity {
 	
 	@Id
-    @SequenceGenerator(name = "proprietarioSeq", sequenceName = "proprietario_id_seq", allocationSize = 1, initialValue = 1)
-    @GeneratedValue(generator = "proprietarioSeq")
 	@Column(name = "PROPRIETARIO_ID")
+	@GeneratedValue(strategy = IDENTITY)
 	private Long proprietario_id;
 	
 	@NotBlank(message="Nome Obrigatório")

@@ -3,18 +3,19 @@ package com.github.rodrigolim.entity;
 import javax.persistence.*;
 import lombok.*;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Setter
 @Getter
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @NoArgsConstructor
-@Table(name = "VEICULO")
+@Table(name = "VEICULO", schema = "CADASTRO")
 public class Veiculo extends BaseEntity {
 	
 	@Id
-    @SequenceGenerator(name = "veiculoSeq", sequenceName = "veiculo_id_seq", allocationSize = 1, initialValue = 1)
-    @GeneratedValue(generator = "veiculoSeq")
 	@Column(name = "VEICULO_ID")
+	@GeneratedValue(strategy = IDENTITY)
 	private Long veiculo_id;
 	
 	@Column(name = "ATIVO", nullable = false)

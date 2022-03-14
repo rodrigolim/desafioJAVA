@@ -1,13 +1,10 @@
 package com.github.rodrigolim.controller;
 
 import java.util.List;
-import java.util.Optional;
 
-import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -35,40 +32,21 @@ public class MarcaController {
 		return service.getTodasMarcas();
 	}
 	
-	@POST
-    @Transactional
+	@POST    
     public void inserir(MarcaDTO dto) {
-		Marca m = new Marca();		
-		m.setNome(dto.getNome());	
-		m.persist();
+		service.inserir(dto);
     }
 	
 	@PUT
 	@Path("{marca_id}")
-    @Transactional
     public void alterar(@PathParam("marca_id") Long marca_id, MarcaDTO dto) {
-	    Optional<Marca> mOp = Marca.findByIdOptional(marca_id);
-	    
-	    if (mOp.isPresent()) {
-	    	Marca m = mOp.get();
-	    	m.setNome(dto.getNome());	
-			m.persist();	
-	    }
-	    else {
-	    	throw new NotFoundException();
-	    }    	   
+		service.alterar(marca_id, dto);  	   
 	}
 	
 	@DELETE
 	@Path("{marca_id}")
-    @Transactional
     public void deletar(@PathParam("marca_id") Long marca_id) {
-	    Optional<Marca> mOp = Marca.findByIdOptional(marca_id);
-	    
-	    mOp.ifPresentOrElse(Marca::delete, () -> {
-	    				throw new NotFoundException();
-	    		});
-		
+		service.deletar(marca_id);  	
     }
 
 }
