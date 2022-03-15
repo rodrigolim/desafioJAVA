@@ -34,7 +34,7 @@ public class VeiculoController {
     @Transactional
     public void inserir(VeiculoDTO dto) {
 		Veiculo v = new Veiculo();
-		v.setAtivo(dto.getAtivo());	
+		v.setAtivo(dto.isAtivo());	
 		v.setCategoria(dto.getCategoria());
 		v.setChassi(dto.getChassi());
 		v.setPlaca(dto.getPlaca());
@@ -56,7 +56,7 @@ public class VeiculoController {
 	    
 	    if (pOp.isPresent()) {
 	    	Veiculo v = pOp.get();
-			v.setAtivo(dto.getAtivo());	
+			v.setAtivo(dto.isAtivo());	
 			v.setCategoria(dto.getCategoria());
 			v.setChassi(dto.getChassi());
 			v.setPlaca(dto.getPlaca());

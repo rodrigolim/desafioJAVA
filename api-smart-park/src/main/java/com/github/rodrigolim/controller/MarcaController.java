@@ -10,7 +10,9 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.github.rodrigolim.entity.Marca;
 import com.github.rodrigolim.model.MarcaDTO;
@@ -25,28 +27,32 @@ import lombok.RequiredArgsConstructor;
 @Produces(MediaType.APPLICATION_JSON)
 public class MarcaController {
 		
-	private final MarcaService service;
+	MarcaService service;
+
+    public MarcaController(MarcaService service) {
+        this.service = service;
+    }
 
 	@GET
-	public List<Marca> buscarTodos(){
-		return service.getTodasMarcas();
-	}
+	public List<Marca> list(@QueryParam("nome") String nome) {
+        return service.list(nome);
+    }
 	
 	@POST    
-    public void inserir(MarcaDTO dto) {
-		service.inserir(dto);
+    public Response create(MarcaDTO dto) {
+		return service.create(dto);		
     }
 	
 	@PUT
 	@Path("{marca_id}")
-    public void alterar(@PathParam("marca_id") Long marca_id, MarcaDTO dto) {
-		service.alterar(marca_id, dto);  	   
+    public Response update(@PathParam("marca_id") Long marca_id, MarcaDTO dto) {
+		return service.update(marca_id, dto);  	   
 	}
 	
 	@DELETE
 	@Path("{marca_id}")
-    public void deletar(@PathParam("marca_id") Long marca_id) {
-		service.deletar(marca_id);  	
+    public Response delete(@PathParam("marca_id") Long marca_id) {
+		return service.delete(marca_id);  	
     }
 
 }
