@@ -1,22 +1,22 @@
 package com.github.rodrigolim.controller;
 
 import java.util.List;
-import java.util.Optional;
 
-import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.github.rodrigolim.entity.Proprietario;
 import com.github.rodrigolim.model.ProprietarioDTO;
+import com.github.rodrigolim.service.ProprietarioService;
 
 
 @Path("/cadastro/proprietarios")
@@ -24,65 +24,33 @@ import com.github.rodrigolim.model.ProprietarioDTO;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProprietarioController {
 		
+	ProprietarioService service;
+
+    public ProprietarioController(ProprietarioService service) {
+        this.service = service;
+    }
+
 	@GET
-	public List<Proprietario> buscarTodos(){
-		return Proprietario.listAll();
-	}
+	public List<Proprietario> list(@QueryParam("nome") String nome) {
+        return service.list(nome);
+    }
 	
-	
-	@POST
-    @Transactional
-    public void inserir(ProprietarioDTO dto) {
-		Proprietario p = new Proprietario();
-		p.setNome(dto.getNome());	
-		p.setTipo(dto.getTipo());
-		p.setCnpj(dto.getCnpj());
-		p.setCpf(dto.getCpf());
-		p.setEndereco(dto.getEndereco());
-		p.setUf(dto.getUf());
-		p.setCidade(dto.getCidade());
-		p.setPais(dto.getPais());
-		p.setTelefone(dto.getTelefone());
-		p.setEmail(dto.getEmail());
-		p.persist();
+	@POST    
+    public Response create(ProprietarioDTO dto) {
+		return service.create(dto);		
     }
 	
 	@PUT
 	@Path("{proprietario_id}")
-    @Transactional
-    public void alterar(@PathParam("proprietario_id") Long proprietario_id, ProprietarioDTO dto) {
-	    Optional<Proprietario> pOp = Proprietario.findByIdOptional(proprietario_id);
-	    
-	    if (pOp.isPresent()) {
-	    	Proprietario p = pOp.get();
-	    	p.setNome(dto.getNome());	
-			p.setTipo(dto.getTipo());
-			p.setCnpj(dto.getCnpj());
-			p.setCpf(dto.getCpf());
-			p.setEndereco(dto.getEndereco());
-			p.setUf(dto.getUf());
-			p.setCidade(dto.getCidade());
-			p.setPais(dto.getPais());
-			p.setTelefone(dto.getTelefone());
-			p.setEmail(dto.getEmail());				
-			p.persist();	
-	    }
-	    else {
-	    	throw new NotFoundException();
-	    }    	   
+    public Response update(@PathParam("proprietario_id") Long proprietario_id, ProprietarioDTO dto) {
+		return service.update(proprietario_id, dto);  	   
 	}
 	
 	@DELETE
 	@Path("{proprietario_id}")
-    @Transactional
-    public void deletar(@PathParam("proprietario_id") Long proprietario_id) {
-	    Optional<Proprietario> mOp = Proprietario.findByIdOptional(proprietario_id);
-	    
-	    mOp.ifPresentOrElse(Proprietario::delete, () -> {
-	    				throw new NotFoundException();
-	    		});
-		
-    }
+    public Response delete(@PathParam("proprietario_id") Long proprietario_id) {
+		return service.delete(proprietario_id);  	
+    }	
 
 
 }
