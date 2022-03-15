@@ -36,8 +36,7 @@ Para reproduzir o exemplo, é necessário seguir os requisitos mínimos.
 
 
 
-## Cadastro de Veículos
-
+## Modelo de dados
 
 ### Veículo:
 * Categoria (CARRO, caminhão, ônibus ou moto);
@@ -86,7 +85,7 @@ Modelar uma estrutura de banco de dados no PostgreSQL, criando um schema novo ch
 Codificar uma API utilizando linguagem JAVA e o framework Quarkus.
 
 
-### Executando o projeto em Quarkus
+## Executando o projeto em Quarkus
 
 Para executar um projeto em Quarkus, basta executar o comando: 
 ```sh
