@@ -78,13 +78,6 @@ Para reproduzir o exemplo, é necessário seguir os requisitos mínimos.
 * Telefone de contato;
 
 
-### 1º passo 
-Modelar uma estrutura de banco de dados no PostgreSQL, criando um schema novo chamado cadastro, e todas as tabelas e campos necessários dado a informação acima; utilizar os nomes das tabelas e elementos do banco de dados em português, porém sem os acentos da linguagem.
-
-### 2º passo  
-Codificar uma API utilizando linguagem JAVA e o framework Quarkus.
-
-
 ## Executando o projeto em Quarkus
 
 Para executar um projeto em Quarkus, basta executar o comando: 
