@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response.Status;
 @RequiredArgsConstructor
 public class VeiculoService {
   
-	private final  VeiculoRepository repository;
+	private final VeiculoRepository repository;
 
     public List<Veiculo> list(String nome){
 		if (nome != null) {

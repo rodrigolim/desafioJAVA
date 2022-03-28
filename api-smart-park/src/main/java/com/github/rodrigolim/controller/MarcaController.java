@@ -18,11 +18,7 @@ import com.github.rodrigolim.entity.Marca;
 import com.github.rodrigolim.model.MarcaDTO;
 import com.github.rodrigolim.service.MarcaService;
 
-import lombok.RequiredArgsConstructor;
-
-
 @Path("/cadastro/marcas")
-@RequiredArgsConstructor
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class MarcaController {

@@ -1,6 +1,9 @@
 package com.github.rodrigolim.entity;
 
 import javax.persistence.*;
+
+import com.github.rodrigolim.model.TipoCategoria;
+
 import lombok.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -22,7 +25,8 @@ public class Veiculo extends BaseEntity {
 	private boolean ativo;
 	
 	@Column(name = "CATEGORIA", length = 10, nullable = false)
-    private String categoria;
+	@Enumerated(value = EnumType.STRING)
+    private TipoCategoria categoria;
 	
 	@Column(name = "CHASSI", length = 20, nullable = false)
     private String chassi;

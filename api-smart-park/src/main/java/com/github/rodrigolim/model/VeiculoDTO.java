@@ -11,7 +11,7 @@ import lombok.*;
 public class VeiculoDTO {
 	
 	private boolean ativo;
-    private String categoria;
+    private TipoCategoria categoria;
     private String chassi;
     private String placa;
     private String modelo;

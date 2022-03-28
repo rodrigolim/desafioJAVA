@@ -20,11 +20,7 @@ import javax.ws.rs.core.Response.Status;
 @RequiredArgsConstructor
 public class MarcaService {
 
-	MarcaRepository repository;
-
-    public MarcaService(MarcaRepository repository) {
-        this.repository = repository;
-    }
+	private final MarcaRepository repository;
 
     public List<Marca> list(String nome){
 		if (nome != null) {
