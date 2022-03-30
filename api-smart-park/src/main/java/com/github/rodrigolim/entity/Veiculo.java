@@ -1,10 +1,9 @@
 package com.github.rodrigolim.entity;
 
 import javax.persistence.*;
+import lombok.*;
 
 import com.github.rodrigolim.model.TipoCategoria;
-
-import lombok.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
